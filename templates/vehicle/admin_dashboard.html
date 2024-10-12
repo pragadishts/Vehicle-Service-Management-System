@@ -1,0 +1,92 @@
+{% extends 'vehicle/adminbase.html' %}
+{% load static %}
+{% block content %}
+
+	<!-- main content -->
+	<div class="wrapper">
+
+		<!-- ****** cards start ********** -->
+		<div class="row">
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter" style="background-color: #4CAF50; color: white;">
+					<p>
+						<i class="fas fa-users"></i>
+					</p>
+					<h3 style="font-family: 'Poppins', sans-serif;">{{total_customer}}</h3>
+					<p>Total Customer</p>
+				</div>
+			</div>
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter" style="background-color: #FF9800; color: white;">
+					<p>
+						<i class="fas fa-hat-cowboy"></i>
+					</p>
+					<h3 style="font-family: 'Poppins', sans-serif;">{{total_mechanic}}</h3>
+					<p>Total Mechanic</p>
+				</div>
+			</div>
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter" style="background-color: #2196F3; color: white;">
+					<p>
+						<i class="fas fa-spinner"></i>
+					</p>
+					<h3 style="font-family: 'Poppins', sans-serif;">{{total_request}}</h3>
+					<p>Total Enquiry</p>
+				</div>
+			</div>
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter" style="background-color: #F44336; color: white;">
+					<p>
+						<i class="fas fa-comments"></i>
+					</p>
+					<h3 style="font-family: 'Poppins', sans-serif;">{{total_feedback}}</h3>
+					<p>Total Feedback</p>
+				</div>
+			</div>
+		</div>
+		<!-- ****** cards end ********** -->
+
+
+		<!-- ****** table start ********** -->
+		<div class="row">
+			<div class="col-12 col-m-12 col-sm-12">
+				<div class="card">
+					<div class="card-header" style="background-color: #673AB7;">
+						<h3 style="color:white; text-align:center; font-family: 'Roboto', sans-serif;">Enquiry By Customer</h3>
+					</div>
+					<div class="card-content" style="font-family: 'Roboto', sans-serif;">
+						<table style="width: 100%; border-collapse: collapse;">
+							<thead style="background-color: #607D8B; color: white;">
+								<tr>
+									<th>Customer Name</th>
+									<th>Vehicle Name</th>
+									<th>Category</th>
+									<th>Vehicle Model</th>
+									<th>Vehicle Brand</th>
+									<th>Problem Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for c,r in data %}
+								<tr style="border-bottom: 1px solid #ddd;">
+									<td style="padding: 8px;">{{c.get_name}}</td>
+									<td style="padding: 8px;">{{r.vehicle_name}}</td>
+									<td style="padding: 8px;">{{r.category}}</td>
+									<td style="padding: 8px;">{{r.vehicle_model}}</td>
+									<td style="padding: 8px;">{{r.vehicle_brand}}</td>
+									<td style="padding: 8px;">{{r.problem_description}}</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ****** table end ********** -->
+
+		<br><br><br><br><br><br>
+
+	</div>
+	<!-- end main content -->
+{% endblock content %}
